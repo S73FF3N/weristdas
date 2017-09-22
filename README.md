@@ -7,7 +7,7 @@ All you need is a repository with images files of 'famous' persons which filenam
 
 The settings are configured for a Playstation Buzz! Controller and a Keyboard for the referee, but you can modify acording to you needs and the devices you have available.
 
-The game is programmed using pygame.
+The game is programmed using pygame and Pillow for image support.
 
 HOW TO START
 
