@@ -1,47 +1,3 @@
-#! /usr/bin/python
-
-## \file  example_simple.py
-#  \brief A (very simple) example of using the menu system
-#  \author Scott Barlow
-#  \date 2009
-#  \version 1.0.0
-#
-#  An example script to create a window and explore some of the features of the
-#  menu class I've created.  This script just creates a very simple menu for
-#  users that just want to see a plain and simply menu.  This could be made even
-#  more simple, but I keep some features I deem "essential" (such as
-#  non-blocking code and only updating the portion of the screen that changed).
-#
-#
-#       Copyright 2009 Scott Barlow
-#
-#       This program is free software; you can redistribute it and/or modify
-#       it under the terms of the GNU General Public License as published by
-#       the Free Software Foundation; either version 3 of the License, or
-#       (at your option) any later version.
-#
-#       This program is distributed in the hope that it will be useful,
-#       but WITHOUT ANY WARRANTY; without even the implied warranty of
-#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#       GNU General Public License for more details.
-#
-#       You should have received a copy of the GNU General Public License
-#       along with this program; if not, write to the Free Software
-#       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-#       MA 02110-1301, USA or see <http://www.gnu.org/licenses/>.
-#
-#
-#  Changelog
-#     V1.0.0 - Initial Release
-#     V1.0.1 - No change to this file
-#     V1.0.2 - No change to this file
-#     V1.0.3 - No change to this file
-#
-
-
-#-------------------------------------------------------------------------------
-#---[ Imports ]-----------------------------------------------------------------
-#-------------------------------------------------------------------------------
 import sys, pygame
 import os
 from menu import *
@@ -51,6 +7,7 @@ from Weristdas import wid
 class wid_menu():
     def __init__(self):
         self.NumberPlayer = 4
+        # directory with the image files
         self.image_dir = "/home/pi/Desktop/venv/jpg_Weristdas/"
         
 
