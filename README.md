@@ -8,3 +8,12 @@ All you need is a repository with images files of 'famous' persons which filenam
 The settings are configured for a Playstation Buzz! Controller and a Keyboard for the referee, but you can modify acording to you needs and the devices you have available.
 
 The game is programmed using pygame.
+
+HOW TO START
+
+Prepare a directory with image files which shall appear in the game. The higher the resolution, the better the game experience will be. Images that are wider than high are favourable.
+
+Then, in your console execute the file 'GUI_Weristdas.py':
+  python GUI_Weristdas.py
+  
+The file 'GUI_Weristdas.py' is used to set up the game with an GUI. The names of the players and the directory of the image files to be used in the game are set using the GUI. Executing 'Start game' will suprisingly start the game by calling the file 'Weristdas.py'.
