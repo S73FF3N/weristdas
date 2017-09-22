@@ -17,3 +17,5 @@ Then, in your console execute the file 'GUI_Weristdas.py':
   python GUI_Weristdas.py
   
 The file 'GUI_Weristdas.py' is used to set up the game with an GUI. The names of the players and the directory of the image files to be used in the game are set using the GUI. Executing 'Start game' will suprisingly start the game by calling the file 'Weristdas.py'.
+
+Since I am a really unexperienced programmer, I developed this game just for fun and by trial and error priciple. So don't blame me for the bad style of programming but feel free to help me improve this game.
