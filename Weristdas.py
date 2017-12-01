@@ -83,7 +83,8 @@ def wid(players, playerNamesList, im_dir):
 	    		converted_file = convert_image_to(file_in, "bmp")
 	    		build_image_dict(converted_file) 
                    
-	print "number of pictures:", len(image_dict)
+	amount_of_pictures = len(image_dict)
+	print "number of pictures:", amount_of_pictures
 	# randomly chosing image from image dictionary and updating image label
 	# image that has been played is deleted from dictionary
 	def random_pick_image():
@@ -102,10 +103,10 @@ def wid(players, playerNamesList, im_dir):
 		# adjusting image width/height to screen
 		# image wider than high
 		if rela >= 1:
-		    image_size = (800, int(min(600, 800/rela)))
+		    image_size = (picture_width, int(min(picture_length, picture_width/rela)))
 		# image higher than wide
 		if rela < 1:
-	    		image_size = (int(min(800, 600/rela)), 600)            
+	    		image_size = (int(min(picture_width, picture_length/rela)), picture_length)            
 	
 		random_image = pygame.transform.scale(random_image, image_size)
 		pygame.draw.rect(screen, white, ((screenx/2)-(picture_width/2), 5,picture_width, picture_length), 0)
@@ -148,9 +149,12 @@ def wid(players, playerNamesList, im_dir):
 	picture = pygame.transform.scale(picture, (picture_width, picture_length))
 	solution_label = myfont.render(welcome, 1, red)
 	lockout = myfont.render("X", 1, black)
+	picture_nr = 1
+	progress = myfont.render(str(picture_nr)+"/"+str(amount_of_pictures))
 	# put the picture and text on the screen
-	screen.blit(picture, ((screenx/2)-(picture_width/2), 5))
-	screen.blit(solution_label, (screenx/2 - len(welcome)*10/2, picture_length+squaresize+65))
+	screen.blit(progress, ((screen/2)-10, 5))
+	screen.blit(picture, ((screenx/2)-(picture_width/2), 20))
+	screen.blit(solution_label, (screenx/2 - len(welcome)*10/2, picture_length+squaresize+80))
 	
 	# Draw name of players, 4 empty rectangles and players score
 	for n in range (0, players):
