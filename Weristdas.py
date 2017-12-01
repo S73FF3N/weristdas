@@ -113,7 +113,7 @@ def wid(players, playerNamesList, im_dir):
 		screen.blit(random_image, ((screenx/2)-(image_size[0]/2), (605-image_size[1])))
 		if not bool(image_dict) and random_im_val == logo:
 		    solution_label = myfont.render("All images played! Ending!", 1, red)
-		    screen.blit(solution_label, (screenx/2 - len(random_im_key)*10/2, picture_length+squaresize+70))
+		    screen.blit(solution_label, (screenx/2 - len(random_im_key)*10/2, picture_length+squaresize+85))
 		if random_im_key == '.DS Store':
 		    random_pick_image()
 		return random_im_key
@@ -121,7 +121,7 @@ def wid(players, playerNamesList, im_dir):
 	# print solution in solution label     
 	def show_solution():
 		solution = myfont.render(random_im_key, 1, red)
-		screen.blit(solution, (screenx/2 - len(random_im_key)*10/2, picture_length+squaresize+70))
+		screen.blit(solution, (screenx/2 - len(random_im_key)*10/2, picture_length+squaresize+85))
 	
 	#countdown printed in solution label
 	def countdown(count_from):
@@ -129,10 +129,10 @@ def wid(players, playerNamesList, im_dir):
 		    time_left = count_from - i
 		    time_left =str(time_left)
 		    countdown = myfont.render(time_left, 1, red)
-		    screen.blit(countdown, (screenx/2 -20, picture_length+squaresize+70))
+		    screen.blit(countdown, (screenx/2 -20, picture_length+squaresize+85))
 		    pygame.display.flip()
 		    pygame.time.wait(1000)
-		    pygame.draw.rect(screen, white, (0, picture_length+squaresize+70, 1000,50),0)
+		    pygame.draw.rect(screen, white, (0, picture_length+squaresize+85, 1000,50),0)
 	    	    pygame.display.flip()
 	
 	# Fill the screen White
@@ -163,8 +163,8 @@ def wid(players, playerNamesList, im_dir):
 		if players % 2 != 0:
 		    xpos = (screenx/2)-(((players/2)-n)*squarewidth)-(squarewidth/2)
 		screen.blit(myfont.render(playerNames[n],1,black),(xpos,picture_length+5))
-		pygame.draw.rect(screen, black, (xpos, picture_length+30,squaresize,squaresize), 0)
-		screen.blit(scorefont.render(str(playerScore[n]),1,black),(xpos, picture_length+squaresize+30))
+		pygame.draw.rect(screen, black, (xpos, picture_length+45,squaresize,squaresize), 0)
+		screen.blit(scorefont.render(str(playerScore[n]),1,black),(xpos, picture_length+squaresize+45))
 	
 	# show the whole thing
 	pygame.display.flip()
@@ -183,7 +183,7 @@ def wid(players, playerNamesList, im_dir):
 						pygame.quit()
 					# referee uses return key to control the game
 					if event.key == K_RETURN:
-						pygame.draw.rect(screen, white, (0, picture_length+squaresize+65, 1500,50),0)
+						pygame.draw.rect(screen, white, (0, picture_length+squaresize+80, 1500,50),0)
 		                    		pygame.display.flip()                            
 		                    		random_pick_image()                                              
 		                    		pygame.display.flip()
@@ -216,7 +216,7 @@ def wid(players, playerNamesList, im_dir):
 		                        xpos = (screenx/2)-(((players/2)-first_buzz)*squarewidth)-(squarewidth/2)
 		
 				    # indicates which player buzzered first with an red square
-		                    pygame.draw.rect(screen, red, (xpos, picture_length+30,squaresize,squaresize), 0)
+		                    pygame.draw.rect(screen, red, (xpos, picture_length+45,squaresize,squaresize), 0)
 		                    first = 1
 				    # countdown starts to leave player 5 seconds to answer
 		                    countdown(5)
@@ -244,21 +244,21 @@ def wid(players, playerNamesList, im_dir):
 		                # points are given for player who buzzered
 		                if keypressed in answer:
 		                    # blank out score label
-		                    pygame.draw.rect(screen, white, (xpos, picture_length+squaresize+30, squaresize, 30),0)
+		                    pygame.draw.rect(screen, white, (xpos, picture_length+squaresize+45, squaresize, 30),0)
 		                    if keypressed == answer[0]:
 		                        playerScore[first_buzz] = playerScore[first_buzz] + 1
 		                    if keypressed == answer[1]:
 		                        playerScore[first_buzz] = playerScore[first_buzz] - 1
-		                    screen.blit(scorefont.render(str(playerScore[first_buzz]),1,black),(xpos, picture_length+squaresize+30))
+		                    screen.blit(scorefont.render(str(playerScore[first_buzz]),1,black),(xpos, picture_length+squaresize+45))
 		                    pygame.display.flip()
 		                
 		            # After buzzer was pressed, referee shows solution and decides if answer was right or wrong
 		                if keypressed == K_RETURN and show_solution_var == 2:
-		                    pygame.draw.rect(screen, white, (0, picture_length+squaresize+65, 1500,50),0)
+		                    pygame.draw.rect(screen, white, (0, picture_length+squaresize+80, 1500,50),0)
 		                    pygame.display.flip()
 		                       # Draw the 4 empty rectangles for the players
 		                    for n in range (0, players):
-		                    	pygame.draw.rect(screen, black, (xpos, picture_length+30,squaresize,squaresize), 0)  
+		                    	pygame.draw.rect(screen, black, (xpos, picture_length+45,squaresize,squaresize), 0)  
 		                    first=0
 		                    waitReset=1
 		                                           
@@ -274,7 +274,10 @@ def wid(players, playerNamesList, im_dir):
 		                    show_solution_var = 2
 		            # next picture is shown        
 		                if keypressed == K_RETURN and show_solution_var == 0:
-		                    pygame.draw.rect(screen, white, (0, picture_length+squaresize+65, 1500,50),0)
+		                    pygame.draw.rect(screen, white, (0, picture_length+squaresize+80, 1500,50),0)
+				    picture_nr += 1
+				    progress = myfont.render(str(picture_nr)+"/"+str(amount_of_pictures))
+				    screen.blit(progress, ((screen/2)-10, 5))
 		                    pygame.display.flip()                            
 		                    random_pick_image()                                              
 		                    pygame.display.flip()
